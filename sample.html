@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Add meta header for IE Compatibility -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Include the flywire.js script -->
+    <script src="https://payment.flywire.com/assets/js/flywire.js"></script>
+</head>
+
+<body>
+    <div>Header</div>
+    <div id="payment-container"></div>
+    <div>Footer</div>
+
+    <script>
+        var config = {
+            // Set the origin of the transaction
+            // (Please leave as-is unless a change is requested by your account manager)
+            provider: "embed",
+
+            // Set your environment
+            // demo | production
+            env: "demo",
+
+            // Set your unique code
+            // e.g. FWB
+            recipient: "PAE",
+
+            // Set your preferred locale
+            // en | es-ES | zh-CN | ko | fr-FR | ja | pt-PT
+            locale: "en",
+
+            // Set theme options
+            theme: {
+                brandColor: "#3498db",  // Any CSS color
+                chat: true,             // true | false
+                preFooter: true,        // true | false
+                footer: true            // true | false
+            },
+
+            // Pre-populate fields with data
+            // Check your portal configuration for available fields
+            amount: 10000,
+            sender_country: "GB",
+            invoice_number: "INV12345",
+
+            // Set read-only fields
+            read_only: "amount,invoice_number",
+        };
+
+        // Render the payment form in the container element
+        window.flywire.Payment.render(config, "#payment-container");
+
+    </script>
+</body>
+
+</html>
